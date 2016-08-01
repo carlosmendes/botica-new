@@ -1,0 +1,23 @@
+<h1><%= @name %></h1>
+
+<p>At <%= @name %> we are great!</p>
+
+<p>Our menu is:</p>
+
+<form action="/" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="text" name="search_meal" value="<%= @search %>">
+	<input type="submit">
+</form>
+
+<ul>
+<% @menu.each do |meal| %>
+	<li><%= meal %></li>
+<% end %>
+</ul>
+
+<p>This link is not going to work because the url is hardcoded</p>
+<%= link_to 'Contact Us', '/pages/contact'  %>
+
+<p>But this link works because it uses the route prefix</p>
+<%= link_to 'Contact Us', contact_path  %>
